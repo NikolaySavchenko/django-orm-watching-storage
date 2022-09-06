@@ -42,7 +42,7 @@ def get_duration(visit):
     if visit.leaved_at:
         return visit.leaved_at - visit.entered_at
     else:
-        return visit.entered_at - datetime.now(timezone.utc)
+        return datetime.now(timezone.utc) - visit.entered_at
 
 
 def is_visit_long(visit, minutes=60):
