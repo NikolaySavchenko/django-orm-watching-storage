@@ -39,7 +39,7 @@ def format_duration(duration):
 
 
 def get_duration(visit):
-    if visit.leaved_at != None:
+    if visit.leaved_at:
         return visit.leaved_at - visit.entered_at
     else:
         return visit.entered_at - datetime.now(timezone.utc)
