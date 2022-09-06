@@ -9,11 +9,11 @@ from django.shortcuts import get_list_or_404
 def storage_information_view(request):
     in_storage_passcards = get_list_or_404(Visit.objects, leaved_at=None)
     non_closed_visits = []
-    for i in range(len(in_storage_passcards)):
+    for in_storage_passcard in in_storage_passcards:
         temp = {
-            'who_entered': in_storage_passcards[i].passcard,
-            'entered_at': localtime(in_storage_passcards[i].entered_at),
-            'duration': format_duration(get_duration(in_storage_passcards[i]))
+            'who_entered': in_storage_passcard.passcard,
+            'entered_at': localtime(in_storage_passcard.entered_at),
+            'duration': format_duration(get_duration(in_storage_passcard))
         }
         non_closed_visits.append(temp)
 
