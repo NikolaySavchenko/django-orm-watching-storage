@@ -7,7 +7,7 @@ from django.shortcuts import get_list_or_404
 
 
 def storage_information_view(request):
-    in_storage_passcards = get_list_or_404(Visit.objects, leaved_at=None)
+    in_storage_passcards = get_list_or_404(Visit.objects, leaved_at__isnull=True)
     non_closed_visits = []
     for in_storage_passcard in in_storage_passcards:
         non_closed_visit = {
