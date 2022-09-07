@@ -11,7 +11,7 @@ from django.shortcuts import get_object_or_404
 
 def passcard_info_view(request, passcode):
     passcard_person = get_object_or_404(Passcard.objects, passcode=passcode)
-    all_visits_persons = get_list_or_404(Visit.objects, passcard=passcard_person.id)
+    all_visits_persons = get_list_or_404(Visit.objects, passcard=passcard_person)
     persons_visits = []
     for all_visits_person in all_visits_persons:
         persons_visit = {
