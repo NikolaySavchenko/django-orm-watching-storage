@@ -11,7 +11,11 @@ DATABASES = {
     }
 }
 
-INSTALLED_APPS = ['datacenter']
+INSTALLED_APPS = ['datacenter', 'django.contrib.staticfiles', 'debug_toolbar',]
+
+MIDDLEWARE = ['debug_toolbar.middleware.DebugToolbarMiddleware',]
+
+INTERNAL_IPS = ['127.0.0.1',]
 
 SECRET_KEY = 'REPLACE_ME'
 
@@ -41,3 +45,5 @@ TIME_ZONE = 'Europe/Moscow'
 USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+STATIC_URL = '/static/'
