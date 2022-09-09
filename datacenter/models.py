@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import timedelta
 import django
 
 
@@ -46,5 +47,4 @@ def get_duration(visit):
 
 
 def is_visit_long(visit, minutes=60):
-    return  (get_duration(visit).days*86400+
-             get_duration(visit).seconds) > (minutes * 60)
+    return  (get_duration(visit).total_seconds()) > (minutes * 60)
