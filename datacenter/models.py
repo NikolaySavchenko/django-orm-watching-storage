@@ -1,5 +1,4 @@
 from django.db import models
-from datetime import timedelta
 import django
 
 
@@ -40,11 +39,9 @@ def format_duration(duration):
 
 
 def get_duration(visit):
-    if visit.leaved_at:
-        return visit.leaved_at - visit.entered_at
-    else:
-        return django.utils.timezone.now() - visit.entered_at
+    return (django.utils.timezone.localtime(visit.leaved_at) - 
+           visit.entered_at)
 
 
 def is_visit_long(visit, minutes=60):
-    return  (get_duration(visit).total_seconds()) > (minutes * 60)
+    return (get_duration(visit).total_seconds()) > (minutes * 60)
