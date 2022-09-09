@@ -32,14 +32,15 @@ class Visit(models.Model):
 
 
 def format_duration(duration):
+    days = duration.days
     hour = duration.seconds // 3600
     minutes = (duration.seconds - hour * 3600) // 60
     seconds = (duration.seconds - hour * 3600 - minutes * 60)
-    return f'{hour} час {minutes} мин {seconds} сек'
+    return f'{days} дн {hour} час {minutes} мин {seconds} сек'
 
 
 def get_duration(visit):
-    return (django.utils.timezone.localtime(visit.leaved_at) - 
+    return (django.utils.timezone.localtime(visit.leaved_at) -
            visit.entered_at)
 
 
