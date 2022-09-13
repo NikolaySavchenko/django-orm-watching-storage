@@ -32,10 +32,10 @@ class Visit(models.Model):
 
 
 def format_duration(duration):
-    days = duration.days
-    hour = duration.seconds // 3600
-    minutes = (duration.seconds - hour * 3600) // 60
-    seconds = (duration.seconds - hour * 3600 - minutes * 60)
+    days = duration.total_seconds() // 86400
+    hour = (duration.total_seconds() - days*86400) // 3600
+    minutes = (duration.total_seconds() - days*86400 - hour*3600) // 60
+    seconds = duration.total_seconds() - days*86400 - hour*3600 - minutes*60
     return f'{days} дн {hour} час {minutes} мин {seconds} сек'
 
 
