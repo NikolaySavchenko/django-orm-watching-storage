@@ -1,4 +1,9 @@
 import os
+from environs import Env
+
+
+env = Env()
+env.read_env()
 
 DATABASES = {
     'default': {
@@ -17,9 +22,9 @@ MIDDLEWARE = ['debug_toolbar.middleware.DebugToolbarMiddleware',]
 
 INTERNAL_IPS = ['127.0.0.1',]
 
-SECRET_KEY = 'REPLACE_ME'
+SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = True
+DEBUG = env.bool('DEBUG')
 
 ROOT_URLCONF = 'project.urls'
 
