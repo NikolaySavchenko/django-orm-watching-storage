@@ -4,3 +4,4 @@
 /datacenter/migrations/__pycache__/
 /project/__pycache__/
 poetry.lock
+*.toml
