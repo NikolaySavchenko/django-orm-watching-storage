@@ -1,4 +1,4 @@
-# django-orm-watching-storage
+# Bank security console
 
 It's connects to Database and display info about visitors in storage: name, duration, who in storage now, etc.
 
@@ -9,7 +9,22 @@ Python3 should already be installed. Use pip (or pip3, if there is a conflict wi
 ```
     pip install -r requirements.txt
 ```
-If the code starting on the local computer, the result can be viewed [here](http://127.0.0.1:8000/)
+
+For using you need your `SECRET KEY` for Database.
+
+You should use environment variables. Create file name `.env` and variables `SECRET_KEY` in the root directory.
+In file `.env` only one line:
+
+```
+SECRET_KEY='here is your SECRET KEY'
+```
+If the code starting on the local computer: 
+
+Command line command:
+```
+$ python manage.py runserver
+```
+The result can be viewed [here](http://127.0.0.1:8000/)
 
 Project Goals
 ------
