@@ -12,12 +12,23 @@ Python3 should already be installed. Use pip (or pip3, if there is a conflict wi
 
 For using you need your `SECRET KEY` for Database.
 
-You should use environment variables. Create file name `.env` and variables `SECRET_KEY` in the root directory.
+You should use environment variables. Create file name `.env` and next variables in the root directory.
 In file `.env` only one line:
 
 ```
 SECRET_KEY='here is your SECRET KEY'
+DEBUG=True or False
+DB_HOST='...'
+DB_PORT='...'
+DB_NAME='...'
+DB_USER='...'
+DB_PASSWORD='...'
+ALLOWED_HOSTS=''
 ```
+Where `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD` - your database settings.
+
+`ALLOWED_HOSTS` - set according to [documentation](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts). Default value `localhost`.
+
 If the code starting on the local computer: 
 
 Command line command:
