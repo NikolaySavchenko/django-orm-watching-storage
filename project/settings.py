@@ -1,20 +1,18 @@
 import os
 from environs import Env
 
-
 env = Env()
 env.read_env()
 
-DATABASES = {
-    'default': {
+DATABASES = {'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'checkpoint.devman.org',
-        'PORT': '5434',
-        'NAME': 'checkpoint',
-        'USER': 'guard',
-        'PASSWORD': 'osim5',
-    }
-}
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+            }
+        }
 
 INSTALLED_APPS = ['datacenter', 'django.contrib.staticfiles', 'debug_toolbar',]
 
